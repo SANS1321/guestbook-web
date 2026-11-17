@@ -16,6 +16,18 @@
             <small class="text-muted">
                 Дата: @entry.PartitionKey
             </small>
+            <br/>
+            <form method="post" asp-page-handler="Delete">
+                <input type="hidden" name="partitionKey"
+                       value="@entry.PartitionKey" />
+                <input type="hidden" name="rowKey"
+                       value="@entry.RowKey" />
+                <button type="submit"
+                    class="btn btn-danger btn-sm mt-2"
+                    onclick="return confirm('Удалить запись?')">
+                    Удалить
+                </button>
+            </form>
         </div>
     </div>
 }
